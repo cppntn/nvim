@@ -73,10 +73,11 @@ return {
       require("Comment").setup()
     end,
   },
-  -- completions
+  -- completions through LSP
   {
     "hrsh7th/cmp-nvim-lsp"
   },
+  -- luasnip
   {
     "L3MON4D3/LuaSnip",
     dependencies = {
@@ -84,6 +85,7 @@ return {
       "rafamadriz/friendly-snippets"
     }
   },
+  -- completions
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -137,10 +139,9 @@ return {
         formatters_by_ft = {
           python = { "black" },
           terraform = { "terraform_fmt" },
-          json = { "jq" }, -- Configuring jq for JSON formatting
+          json = { "jq" },
         },
         format_on_save = {
-          -- I recommend these options. See :help conform.format for details.
           lsp_fallback = true,
           timeout_ms = 500,
         },
