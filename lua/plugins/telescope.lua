@@ -6,6 +6,7 @@ return {
     config = function()
       vim.keymap.set('n', '<leader>ff', ':Telescope find_files follow=true no_ignore=true hidden=true <CR>', {})
       vim.keymap.set('n', '<leader>fw', ':Telescope live_grep <CR>', {})
+      vim.keymap.set('n', '<leader>cm', ':Telescope git_commits <CR>', {})
     end
   },
   {

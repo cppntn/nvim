@@ -79,8 +79,6 @@ vim.keymap.set('n', '<leader>v', ':vsp | terminal<CR>', { desc = "Vertical termi
 
 vim.keymap.set('t', '<C-x>', '<C-\\><C-n>', { desc = "Switch to Normal mode in Terminal", nowait = true })
 
--- vim.keymap.set('n', '<leader>x', ':bp|bd #<CR>', { noremap = true, silent = true })
-
 vim.api.nvim_create_user_command('CloseBuf', function()
   local buf_count = vim.fn.len(vim.fn.filter(vim.fn.range(1, vim.fn.bufnr('$')), 'buflisted(v:val)'))
   if buf_count > 1 then
@@ -99,6 +97,7 @@ vim.keymap.set('n', '<leader>x', function()
   end
 end, { noremap = true, silent = true })
 
+-- disable line numbers in terminal
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNew', 'TermOpen' }, {
   callback = function()
     if vim.bo.buftype == 'terminal' then
@@ -112,13 +111,10 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNew', 'TermOpen' }, {
   end,
 })
 
+-- Close the buffer that was hosting the terminal
 vim.api.nvim_create_autocmd("TermClose", {
   pattern = "*",
   callback = function(args)
-    -- Optionally, you can check the exit status if needed:
-    -- local exit_status = vim.api.nvim_eval('v:shell_error')
-    -- Close the buffer that was hosting the terminal
-    -- Use ':bd!' to force the buffer to close without prompting
     vim.cmd(string.format("bd! %d", args.buf))
   end,
 })
