@@ -111,6 +111,14 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNew', 'TermOpen' }, {
   end,
 })
 
+-- remove terminal from buflisted
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    vim.cmd("setlocal nobuflisted")
+  end,
+})
+
 -- Close the buffer that was hosting the terminal
 vim.api.nvim_create_autocmd("TermClose", {
   pattern = "*",
