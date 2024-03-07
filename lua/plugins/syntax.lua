@@ -77,10 +77,6 @@ return {
   {
     "hrsh7th/cmp-nvim-lsp"
   },
-  -- github copilot
-  {
-    "github/copilot.vim"
-  },
   -- luasnip
   {
     "L3MON4D3/LuaSnip",
