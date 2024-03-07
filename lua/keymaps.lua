@@ -27,6 +27,8 @@ vim.keymap.set('n', '<Down>', 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { 
 vim.keymap.set('n', '<leader>b', '<cmd>enew<CR>', { desc = 'New buffer' })
 vim.keymap.set('n', '<leader>h', ':sp | terminal<CR>', { desc = "Horizontal terminal split", nowait = true })
 vim.keymap.set('n', '<leader>v', ':vsp | terminal<CR>', { desc = "Vertical terminal split", nowait = true })
+vim.keymap.set('v', '<', '<gv', { desc = "Indent line left" })
+vim.keymap.set('v', '>', '>gv', { desc = "Indent line right" })
 vim.keymap.set('n', '<leader>x', function()
   if vim.bo.buftype == 'terminal' then
     -- Do nothing if it's a terminal
