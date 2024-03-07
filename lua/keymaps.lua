@@ -5,6 +5,8 @@ vim.keymap.set('i', '<C-e>', '<End>', { desc = 'End of line' })
 vim.keymap.set('i', '<C-d>', '<Del>', { desc = "Backward delete" })
 vim.keymap.set('i', '<C-k>', "getline('.') == '' ? '<C-o>dd' : '<C-o>D'",
   { expr = true, desc = "Delete to end or delete line" })
+vim.api.nvim_set_keymap("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up", noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-Down>", ":m .+1<CR>==", { desc = "Move line down", noremap = true, silent = true })
 
 -- Normal mode mappings
 vim.keymap.set('n', ';', ':', { nowait = true })
