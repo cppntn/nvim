@@ -1,34 +1,35 @@
+local map = vim.keymap.set
+
 -- Insert mode mappings
-vim.keymap.set('i', '<C-a>', '<ESC>^i', { desc = "Beginning of line" })
-vim.keymap.set('i', '<C-b>', '<ESC>^i', { desc = 'Beginning of line' })
-vim.keymap.set('i', '<C-e>', '<End>', { desc = 'End of line' })
-vim.keymap.set('i', '<C-d>', '<Del>', { desc = "Backward delete" })
-vim.keymap.set('i', '<C-k>', "getline('.') == '' ? '<C-o>dd' : '<C-o>D'",
+map('i', '<C-a>', '<ESC>^i', { desc = "Beginning of line" })
+map('i', '<C-e>', '<End>', { desc = 'End of line' })
+map('i', '<C-d>', '<Del>', { desc = "Backward delete" })
+map('i', '<C-k>', "getline('.') == '' ? '<C-o>dd' : '<C-o>D'",
   { expr = true, desc = "Delete to end or delete line" })
-vim.api.nvim_set_keymap("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up", noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<A-Down>", ":m .+1<CR>==", { desc = "Move line down", noremap = true, silent = true })
+map("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up", noremap = true, silent = true })
+map("n", "<A-Down>", ":m .+1<CR>==", { desc = "Move line down", noremap = true, silent = true })
 
 -- Normal mode mappings
-vim.keymap.set('n', ';', ':', { nowait = true })
-vim.keymap.set('n', '<Esc>', '<cmd>noh<CR>', { desc = 'Clear highlights' })
-vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = "Next buffer", nowait = true })
-vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { desc = "Previous buffer", nowait = true })
-vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Window left' })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Window right' })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Window down' })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Window up' })
-vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Save file' })
-vim.keymap.set('n', '<C-c>', '<cmd>%y+<CR>', { desc = 'Copy whole file' })
-vim.keymap.set('n', '<leader>n', '<cmd>set nu!<CR>', { desc = 'Toggle line number' })
-vim.keymap.set('n', '<leader>rn', '<cmd>set rnu!<CR>', { desc = 'Toggle relative number' })
-vim.keymap.set('n', 'j', 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true, desc = 'Move down' })
-vim.keymap.set('n', 'k', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true, desc = 'Move up' })
-vim.keymap.set('n', '<Up>', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true, desc = 'Move up' })
-vim.keymap.set('n', '<Down>', 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true, desc = 'Move down' })
-vim.keymap.set('n', '<leader>b', '<cmd>enew<CR>', { desc = 'New buffer' })
-vim.keymap.set('n', '<leader>h', ':sp | terminal<CR>', { desc = "Horizontal terminal split", nowait = true })
-vim.keymap.set('n', '<leader>v', ':vsp | terminal<CR>', { desc = "Vertical terminal split", nowait = true })
-vim.keymap.set('n', '<leader>x', function()
+map('n', ';', ':', { nowait = true })
+map('n', '<Esc>', '<cmd>noh<CR>', { desc = 'Clear highlights' })
+map('n', '<Tab>', ':bnext<CR>', { desc = "Next buffer", nowait = true })
+map('n', '<S-Tab>', ':bprevious<CR>', { desc = "Previous buffer", nowait = true })
+map('n', '<C-h>', '<C-w>h', { desc = 'Window left' })
+map('n', '<C-l>', '<C-w>l', { desc = 'Window right' })
+map('n', '<C-j>', '<C-w>j', { desc = 'Window down' })
+map('n', '<C-k>', '<C-w>k', { desc = 'Window up' })
+map('n', '<C-s>', '<cmd>w<CR>', { desc = 'Save file' })
+map('n', '<C-c>', '<cmd>%y+<CR>', { desc = 'Copy whole file' })
+map('n', '<leader>n', '<cmd>set nu!<CR>', { desc = 'Toggle line number' })
+map('n', '<leader>rn', '<cmd>set rnu!<CR>', { desc = 'Toggle relative number' })
+map('n', 'j', 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true, desc = 'Move down' })
+map('n', 'k', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true, desc = 'Move up' })
+map('n', '<Up>', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true, desc = 'Move up' })
+map('n', '<Down>', 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true, desc = 'Move down' })
+map('n', '<leader>b', '<cmd>enew<CR>', { desc = 'New buffer' })
+map('n', '<leader>h', ':sp | terminal<CR>', { desc = "Horizontal terminal split", nowait = true })
+map('n', '<leader>v', ':vsp | terminal<CR>', { desc = "Vertical terminal split", nowait = true })
+map('n', '<leader>x', function()
   if vim.bo.buftype == 'terminal' then
     -- Do nothing if it's a terminal
     return
@@ -42,10 +43,10 @@ vim.keymap.set('n', '<leader>x', function()
 end, { desc = "Close buffer", noremap = true, silent = true })
 
 -- Visual mode mappings
-vim.keymap.set('v', '<', '<gv', { desc = "Indent line left" })
-vim.keymap.set('v', '>', '>gv', { desc = "Indent line right" })
+map('v', '<', '<gv', { desc = "Indent line left" })
+map('v', '>', '>gv', { desc = "Indent line right" })
 
 -- Terminal mode mappings
-vim.keymap.set('t', '<S-Space>', '<Space>', { nowait = true })
-vim.keymap.set('t', '<S-CR>', '<CR>', { nowait = true })
-vim.keymap.set('t', '<C-x>', '<C-\\><C-n>', { desc = "Switch to Normal mode in Terminal", nowait = true })
+map('t', '<S-Space>', '<Space>', { nowait = true })
+map('t', '<S-CR>', '<CR>', { nowait = true })
+map('t', '<C-x>', '<C-\\><C-n>', { desc = "Switch to Normal mode in Terminal", nowait = true })
