@@ -5,7 +5,7 @@ return {
     lazy = false,
     config = function()
       vim.keymap.set('n', '<leader>gd', ':DiffviewOpen <CR>', { silent = true })
-      vim.keymap.set('n', '<leader>gdc', ':DiffviewClose <CR>', { silent = true })
+      vim.keymap.set('n', '<leader>gc', ':DiffviewClose <CR>', { silent = true })
     end
   },
   -- gitsigns
