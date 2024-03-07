@@ -3,7 +3,7 @@ local map = vim.keymap.set
 -- Insert mode mappings
 map('i', '<C-a>', '<ESC>^i', { desc = "Beginning of line" })
 map('i', '<C-e>', '<End>', { desc = 'End of line' })
-map('i', '<C-d>', '<Del>', { desc = "Backward delete" })
+map('i', '<C-d>', '<Del>', { desc = "Forward delete" })
 map('i', '<C-k>', "getline('.') == '' ? '<C-o>dd' : '<C-o>D'",
   { expr = true, desc = "Delete to end or delete line" })
 map("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up", noremap = true, silent = true })
