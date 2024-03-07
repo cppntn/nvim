@@ -3,7 +3,8 @@ vim.keymap.set('i', '<C-a>', '<ESC>^i', { desc = "Beginning of line" })
 vim.keymap.set('i', '<C-b>', '<ESC>^i', { desc = 'Beginning of line' })
 vim.keymap.set('i', '<C-e>', '<End>', { desc = 'End of line' })
 vim.keymap.set('i', '<C-d>', '<Del>', { desc = "Backward delete" })
-vim.keymap.set('i', '<C-k>', '<C-o>D', { desc = "Delete to end of line" })
+vim.keymap.set('i', '<C-k>', "getline('.') == '' ? '<C-o>dd' : '<C-o>D'",
+  { expr = true, desc = "Delete to end or delete line" })
 
 -- Normal mode mappings
 vim.keymap.set('n', ';', ':', { nowait = true })
