@@ -12,8 +12,8 @@ map("n", "<A-Down>", ":m .+1<CR>==", { desc = "Move line down", noremap = true, 
 -- Normal mode mappings
 map('n', ';', ':', { nowait = true })
 map('n', '<Esc>', '<cmd>noh<CR>', { desc = 'Clear highlights' })
-map('n', '<Tab>', ':bnext<CR>', { desc = "Next buffer", nowait = true })
-map('n', '<S-Tab>', ':bprevious<CR>', { desc = "Previous buffer", nowait = true })
+map('n', '<Tab>', ':bnext<CR>', { desc = "Next buffer", nowait = true, silent = true })
+map('n', '<S-Tab>', ':bprevious<CR>', { desc = "Previous buffer", nowait = true, silent = true })
 map('n', '<C-h>', '<C-w>h', { desc = 'Window left' })
 map('n', '<C-l>', '<C-w>l', { desc = 'Window right' })
 map('n', '<C-j>', '<C-w>j', { desc = 'Window down' })
@@ -27,8 +27,8 @@ map('n', 'k', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true, des
 map('n', '<Up>', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true, desc = 'Move up' })
 map('n', '<Down>', 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true, desc = 'Move down' })
 map('n', '<leader>b', '<cmd>enew<CR>', { desc = 'New buffer' })
-map('n', '<leader>h', ':sp | terminal<CR>', { desc = "Horizontal terminal split", nowait = true })
-map('n', '<leader>v', ':vsp | terminal<CR>', { desc = "Vertical terminal split", nowait = true })
+map('n', '<leader>h', ':sp | terminal<CR>', { desc = "Horizontal terminal split", nowait = true, silent = true })
+map('n', '<leader>v', ':vsp | terminal<CR>', { desc = "Vertical terminal split", nowait = true, silent = true })
 map('n', '<leader>x', function()
   if vim.bo.buftype == 'terminal' then
     -- Do nothing if it's a terminal
