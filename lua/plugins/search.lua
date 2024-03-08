@@ -8,7 +8,16 @@ return {
       local action_state = require('telescope.actions.state')
       local telescope = require('telescope')
 
-      telescope.setup({})
+      telescope.setup({
+        defaults = {
+          sorting_strategy = "ascending",
+          layout_config = {
+            horizontal = {
+              prompt_position = "top",
+            },
+          },
+        },
+      })
 
       -- Custom function to open git_commits under DiffviewOpen
       local function git_commits_with_diffview()
