@@ -42,7 +42,7 @@ vim.opt.updatetime = 250
 -- when cursor reaches end/beginning of line
 vim.opt.whichwrap:append "<>[]hl"
 
-
+vim.opt.linebreak = true
 
 ------------------------------------ vim scripts ----------------------------------------
 vim.cmd [[autocmd VimLeave * set guicursor=a:ver25]]
