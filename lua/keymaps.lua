@@ -6,10 +6,11 @@ map('i', '<C-e>', '<End>', { desc = 'End of line' })
 map('i', '<C-d>', '<Del>', { desc = "Forward delete" })
 map('i', '<C-k>', "getline('.') == '' ? '<C-o>dd' : '<C-o>D'",
   { expr = true, desc = "Delete to end or delete line" })
-map("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up", noremap = true, silent = true })
-map("n", "<A-Down>", ":m .+1<CR>==", { desc = "Move line down", noremap = true, silent = true })
+map('i', '<C-s>', '<C-o><cmd>w<CR>', { desc = 'Save file when in insert mode' })
 
 -- Normal mode mappings
+map("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up", noremap = true, silent = true })
+map("n", "<A-Down>", ":m .+1<CR>==", { desc = "Move line down", noremap = true, silent = true })
 map('n', ';', ':', { nowait = true })
 map('n', '<Esc>', '<cmd>noh<CR>', { desc = 'Clear highlights', silent = true })
 map('n', '<Tab>', ':bnext<CR>', { desc = "Next buffer", nowait = true, silent = true })
