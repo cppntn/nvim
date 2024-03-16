@@ -4,11 +4,14 @@ local map = vim.keymap.set
 map('i', '<C-a>', '<ESC>^i', { desc = "Beginning of line" })
 map('i', '<C-e>', '<End>', { desc = 'End of line' })
 map('i', '<C-d>', '<Del>', { desc = "Forward delete" })
-map('i', '<C-k>', "getline('.') == '' ? '<C-o>dd' : '<C-o>D'",
+map('i', '<C-k>', "getline('.') == '' ? '<C-o>\"_dd' : '<C-o>\"_D'",
   { expr = true, desc = "Delete to end or delete line" })
 map('i', '<C-s>', '<C-o><cmd>w<CR>', { desc = 'Save file when in insert mode' })
 
 -- Normal mode mappings
+map('n', 'd', '"_d', { noremap = true, silent = true })
+map('n', 'D', '"_D', { noremap = true, silent = true })
+map('n', 'dd', '"_dd', { noremap = true, silent = true })
 map("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up", noremap = true, silent = true })
 map("n", "<A-Down>", ":m .+1<CR>==", { desc = "Move line down", noremap = true, silent = true })
 map('n', ';', ':', { nowait = true })
@@ -44,6 +47,8 @@ map('n', '<leader>x', function()
 end, { desc = "Close buffer", noremap = true, silent = true })
 
 -- Visual mode mappings
+map('v', 'd', '"_d', { noremap = true, silent = true })
+map('v', 'D', '"_D', { noremap = true, silent = true })
 map('v', '<', '<gv', { desc = "Indent line left" })
 map('v', '>', '>gv', { desc = "Indent line right" })
 
